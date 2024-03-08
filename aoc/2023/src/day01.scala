@@ -12,13 +12,11 @@ import inputs.Input.loadFileSync
 def loadInput(): String = loadFileSync(s"$currentDir/../input/day01")
 
 def part1(input: String): String =
-  // Convert one line into the appropriate coordinates
   def lineToCoordinates(line: String): Int =
     val firstDigit = line.find(_.isDigit).get
     val lastDigit = line.findLast(_.isDigit).get
     s"$firstDigit$lastDigit".toInt
 
-  // Convert each line to its coordinates and sum all the coordinates
   val result = input
     .linesIterator
     .map(lineToCoordinates(_))
@@ -26,7 +24,6 @@ def part1(input: String): String =
   result.toString()
 end part1
 
-/** The textual representation of digits. */
 val stringDigitReprs = Map(
   "one" -> 1,
   "two" -> 2,
